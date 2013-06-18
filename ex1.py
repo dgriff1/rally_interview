@@ -47,7 +47,6 @@ def convert_to_str( number ):
 		raise Exception("Invalid Number %s " % number ) 
 
 def convert_by_place( number, offset = 0):
-	#print "number ", number, " offset ", offset
 	if not number:
 		return ""
 	elif offset == 0:
@@ -79,5 +78,8 @@ def readable_number( num ):
 
 
 if __name__ == "__main__":
-	import doctest
-	doctest.testmod()
+	import sys
+	if len(sys.argv) == 2:
+		print readable_number( sys.argv[1] )
+	else:
+		print "No number specified"

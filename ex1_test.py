@@ -31,20 +31,21 @@ class TestEx1(unittest.TestCase):
 	def test_convert_by_place(self):
 		self.assertEqual( convert_by_place("3", 0), "three"  )
 		self.assertEqual( convert_by_place("24", 0), "twenty-four"  )
-		self.assertEqual( convert_by_place("253", 0), "two hundred and fifty-three"  )
-		self.assertEqual( convert_by_place("4593", 0), "four thousand, five hundred and ninety-three"  )
-		self.assertEqual( convert_by_place("40593", 0), "forty thousand, five hundred and ninety-three"  )
-		self.assertEqual( convert_by_place("840593", 0), "eight hundred and forty thousand, five hundred and ninety-three"  )
-		self.assertEqual( convert_by_place("26730598", 0), "twenty-six million, seven hundred and thirty thousand, five hundred and ninety-eight"  )
-		self.assertEqual( convert_by_place("626730598", 0), "six hundred and twenty-six million, seven hundred and thirty thousand, five hundred and ninety-eight"  )
+		self.assertEqual( convert_by_place("253", 0), "two hundred fifty-three"  )
+		self.assertEqual( convert_by_place("4593", 0), "four thousand five hundred ninety-three"  )
+		self.assertEqual( convert_by_place("40593", 0), "forty thousand five hundred ninety-three"  )
+		self.assertEqual( convert_by_place("840593", 0), "eight hundred forty thousand five hundred ninety-three"  )
+		self.assertEqual( convert_by_place("26730598", 0), "twenty-six million seven hundred thirty thousand five hundred ninety-eight"  )
+		self.assertEqual( convert_by_place("626730598", 0), "six hundred twenty-six million seven hundred thirty thousand five hundred ninety-eight"  )
 
 	def test_to_fraction(self):
 		self.assertEqual( to_fraction("12"), " and 12/100 dollars")
 
 
 	def test_full_conversion(self): 
-		self.assertEqual( readable_number("123.56"), "one hundred and twenty-three and 56/100 dollars")		
-		self.assertEqual( readable_number("626730598"), "six hundred and twenty-six million, seven hundred and thirty thousand, five hundred and ninety-eight and 00/100 dollars")		
+		self.assertEqual( readable_number("123.56"), "One hundred twenty-three and 56/100 dollars")		
+		self.assertEqual( readable_number("626730598"), "Six hundred twenty-six million seven hundred thirty thousand five hundred ninety-eight and 00/100 dollars")		
+		self.assertEqual( readable_number("2523.04"), "Two thousand five hundred twenty-three and 04/100 dollars")
 
 if __name__ == '__main__':
 	unittest.main()

@@ -52,15 +52,15 @@ def convert_by_place( number, offset = 0):
 	elif offset == 0:
 		return convert_by_place(number[:-2], 2) + convert_to_str( number[-2:] ) 
 	elif offset == 2:
-		return convert_by_place(number[:-1], 3) + convert_to_str( number[-1:] ) + " hundred and "
+		return convert_by_place(number[:-1], 3) + convert_to_str( number[-1:] ) + " hundred "
 	elif offset == 3:
-		return convert_by_place(number[:-2], 5) + convert_to_str( number[-2:] ) + " thousand, "
+		return convert_by_place(number[:-2], 5) + convert_to_str( number[-2:] ) + " thousand "
 	elif offset == 5:
-		return convert_by_place(number[:-1], 6) + convert_to_str( number[-1:] ) + " hundred and "
+		return convert_by_place(number[:-1], 6) + convert_to_str( number[-1:] ) + " hundred "
 	elif offset == 6:
-		return convert_by_place(number[:-2], 8) + convert_to_str( number[-2:] ) + " million, "
+		return convert_by_place(number[:-2], 8) + convert_to_str( number[-2:] ) + " million "
 	elif offset == 8:
-		return convert_by_place(number[:-1], 9) + convert_to_str( number[-1:] ) + " hundred and "
+		return convert_by_place(number[:-1], 9) + convert_to_str( number[-1:] ) + " hundred "
 	return ""
 
 def to_fraction( number ):
@@ -74,7 +74,7 @@ def readable_number( num ):
 		raise ValueError("%s is not a valid number" % (num))
 
 	(dollars, cents) = split_on_period(num)
-	return convert_by_place(dollars) + to_fraction( cents )  
+	return ( convert_by_place(dollars) + to_fraction( cents ) ).capitalize() 
 
 
 if __name__ == "__main__":

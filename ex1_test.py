@@ -3,9 +3,9 @@ import unittest
 
 class TestEx1(unittest.TestCase):
 	
-	def test_split_cents(self):
-		self.assertEqual( split_cents("123.45"), ['123', '45'] )
-		self.assertEqual( split_cents("23"), ['23', '00'] )
+	def test_split_on_period(self):
+		self.assertEqual( split_on_period("123.45"), ['123', '45'] )
+		self.assertEqual( split_on_period("23"), ['23', '00'] )
 
 	def test_convert_str(self):
 		self.assertEqual( convert_to_str("1"), "one" )
@@ -37,6 +37,14 @@ class TestEx1(unittest.TestCase):
 		self.assertEqual( convert_by_place("840593", 0), "eight hundred and forty thousand, five hundred and ninety-three"  )
 		self.assertEqual( convert_by_place("26730598", 0), "twenty-six million, seven hundred and thirty thousand, five hundred and ninety-eight"  )
 		self.assertEqual( convert_by_place("626730598", 0), "six hundred and twenty-six million, seven hundred and thirty thousand, five hundred and ninety-eight"  )
+
+	def test_to_fraction(self):
+		self.assertEqual( to_fraction("12"), " and 12/100 dollars")
+
+
+	def test_full_conversion(self): 
+		self.assertEqual( readable_number("123.56"), "one hundred and twenty-three and 56/100 dollars")		
+		self.assertEqual( readable_number("626730598"), "six hundred and twenty-six million, seven hundred and thirty thousand, five hundred and ninety-eight and 00/100 dollars")		
 
 if __name__ == '__main__':
 	unittest.main()

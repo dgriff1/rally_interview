@@ -1,6 +1,6 @@
 
 
-def split_cents( number ):
+def split_on_period( number ):
 	if "." in number:
 		return number.split(".") 
 	else:
@@ -46,7 +46,7 @@ def convert_to_str( number ):
 	else:
 		raise Exception("Invalid Number %s " % number ) 
 
-def convert_by_place( number, offset):
+def convert_by_place( number, offset = 0):
 	#print "number ", number, " offset ", offset
 	if not number:
 		return ""
@@ -63,6 +63,20 @@ def convert_by_place( number, offset):
 	elif offset == 8:
 		return convert_by_place(number[:-1], 9) + convert_to_str( number[-1:] ) + " hundred and "
 	return ""
+
+def to_fraction( number ):
+	return " and %s/100 dollars" % number
+
+
+def readable_number( num ):
+	try:
+		float(num)
+	except ValueError:
+		raise ValueError("%s is not a valid number" % (num))
+
+	(dollars, cents) = split_on_period(num)
+	return convert_by_place(dollars) + to_fraction( cents )  
+
 
 if __name__ == "__main__":
 	import doctest

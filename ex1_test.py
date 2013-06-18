@@ -37,6 +37,8 @@ class TestEx1(unittest.TestCase):
 		self.assertEqual( convert_by_place("840593", 0), "eight hundred forty thousand five hundred ninety-three"  )
 		self.assertEqual( convert_by_place("26730598", 0), "twenty-six million seven hundred thirty thousand five hundred ninety-eight"  )
 		self.assertEqual( convert_by_place("626730598", 0), "six hundred twenty-six million seven hundred thirty thousand five hundred ninety-eight"  )
+		# we just ignore stuff we can't handle
+		self.assertEqual( convert_by_place("12345626730598", 0), "six hundred twenty-six million seven hundred thirty thousand five hundred ninety-eight"  )
 
 	def test_to_fraction(self):
 		self.assertEqual( to_fraction("12"), " and 12/100 dollars")

@@ -43,7 +43,7 @@ class TestEx1(unittest.TestCase):
 
 
 	def test_full_conversion(self): 
-		self.assertEqual( readable_number("123.56"), "One hundred twenty-three and 56/100 dollars")		
+		self.assertEqual( readable_number(123.56), "One hundred twenty-three and 56/100 dollars")		
 		self.assertEqual( readable_number("626730598"), "Six hundred twenty-six million seven hundred thirty thousand five hundred ninety-eight and 00/100 dollars")		
 		self.assertEqual( readable_number("2523.04"), "Two thousand five hundred twenty-three and 04/100 dollars")
 

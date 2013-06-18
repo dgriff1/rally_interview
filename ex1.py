@@ -73,7 +73,7 @@ def readable_number( num ):
 	except ValueError:
 		raise ValueError("%s is not a valid number" % (num))
 
-	(dollars, cents) = split_on_period(num)
+	(dollars, cents) = split_on_period( str( num ) )
 	return ( convert_by_place(dollars) + to_fraction( cents ) ).capitalize() 
 
 
